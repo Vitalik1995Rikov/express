@@ -2,16 +2,12 @@ const express = require("express");
 
 const app = express();
 
-app.get("/", function(request, response) {
-    response.send("<h2>Привет Express<h2>");
-});
+// app.use(function(request, response) {
+//     response.sendFile(__dirname + "/index.html");
+// });
 
-app.get("/about", function(request, response) {
-    response.send("<h1>О сайте<h1>");
-});
-
-app.get("/contact", function(request, response) {
-    response.send("<h1>Контакты</h1>");
+app.use("/home/foo/bar", function(request, response) {
+    response.status(404).send("Ресурс не найден");
 });
 
 app.listen(3000);
